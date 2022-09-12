@@ -1,4 +1,6 @@
 import '../styles/global.css'
+import '../styles/main.scss'
+import '../styles/styles.scss'
 import Script from "next/script";
 
 export default function App({ Component, pageProps }) {

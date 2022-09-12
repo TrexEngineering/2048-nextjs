@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
-
-
+import BoardView from '../components/Board'
 
 export default function Home() {
 
@@ -24,7 +23,7 @@ export default function Home() {
 
       <main>
         <h1>2048</h1>
-
+        <BoardView/>
       </main>
 
       <footer>
