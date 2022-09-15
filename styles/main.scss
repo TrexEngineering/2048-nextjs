@@ -3,6 +3,37 @@
   src: url("./ClearSans-Regular.ttf") format("truetype");
 }
 
+:root {
+  --tile2: url(/2.gif);
+  --tile4: url(/4.gif);
+  --tile8: url(/8.gif);
+  --tile16: url(/16.gif);
+  --tile32: url(/32.gif);
+  --tile64: url(/64.gif);
+  --tile128: url(/128.gif);
+  --tile256: url(/256.gif);
+  --tile512: url(/512.gif);
+  --tile1024: url(/1024.gif);
+  --tile2048: url(/2048.gif);
+}
+
+[data-theme="aoi"] {
+  --tile2: url(/2_aoi.png);
+  --tile4: url(/4_aoi.png);
+  --tile8: url(/8_aoi.png);
+  --tile16: url(/16_aoi.png);
+  --tile32: url(/32_aoi.png);
+  --tile64: url(/64_aoi.png);
+  --tile128: url(/128_aoi.png);
+  --tile256: url(/256_aoi.png);
+  --tile512: url(/512_aoi.png);
+  --tile1024: url(/1024_aoi.png);
+  --tile2048: url(/2048_aoi.png);
+
+}
+
+html, body {overflow: hidden; margin: 0;}
+
 body {
   display: flex;
   background-color: #57407c;
@@ -12,6 +43,13 @@ body {
   align-items: center;
   font-family: "Clear Sans", sans-serif;
   font-size: 21px;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  body {
+    
+  }
 }
 
 .text {
@@ -19,6 +57,10 @@ body {
   padding-top: 40px;
   width: 440px;
   font-weight: bold;
+}
+
+.board-container {
+  width: 100%;
 }
 
 .board {
@@ -95,54 +137,54 @@ body {
 
 .tile2 {
   background-color: #eee;
-  background-image: url(/2.gif);
+  background-image: var(--tile2);
 }
 
 .tile4 {
   background-color: #eec;
-  background-image: url(/4.gif);
+  background-image: var(--tile4);
 }
 
 .tile8 {
   color: #ffe;
-  background-image: url(/8.gif);
+  background-image: var(--tile8);
 }
 
 .tile16 {
   color: #ffe;
-  background-image: url(/16.gif);
+  background-image: var(--tile16);
 }
 
 .tile32 {
   color: #ffe;
-  background-image: url(/32.gif);
+  background-image: var(--tile32);
 }
 
 .tile64 {
   color: #ffe;
-  background-image: url(/64.gif);
+  background-image: var(--tile64);
 }
 
 .tile128 {
   color: #ffe;
-  background-image: url(/128.gif);
+  background-image: var(--tile128);
 }
 
 .tile256 {
   color: #ffe;
-  background-image: url(/256.gif);
+  background-image: var(--tile256);
   font-size: 45px;
 }
 
 .tile512 {
   color: #ffe;
-  background-image: url(/512.gif);
+  background-image: var(--tile512);
   font-size: 45px;
 }
 
 .tile1024 {
   color: #fff;
-  background-image: url(/1024.gif);
+  background-image: var(--tile1024);
   font-size: 35px;
 }
 
@@ -155,7 +197,7 @@ body {
   bottom: 0;
   padding: 0px;
   color: #fff;
-  background-image: url(/2048.gif);
+  background-image: var(--tile2048);
   font-size: 35px;
 }
 

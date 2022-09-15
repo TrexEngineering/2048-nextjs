@@ -1,12 +1,17 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Cell from "./Cell"
 import Tile from "./Tile"
 import { Board } from "../helper"
 import useEvent from "../hooks/useEvent"
 import GameOverlay from "./GameOverlay"
+import { useSwipeable } from "react-swipeable";
 
 export default function BoardView() {
     const [board, setBoard] = useState(new Board())
+
+    useEffect(() => {
+        setBoard(new Board());
+      }, []);
 
     const handleKeyDown = (event) => {
         if (board.hasWon()){
@@ -20,6 +25,15 @@ export default function BoardView() {
             setBoard(newBoard);
         }
     }
+
+    const handlers = useSwipeable({
+        onSwipedLeft: () => setBoard(Object.assign(Object.create(Object.getPrototypeOf(board)), board).move(0)),
+        onSwipedUp: () => setBoard(Object.assign(Object.create(Object.getPrototypeOf(board)), board).move(1)),
+        onSwipedRight: () => setBoard(Object.assign(Object.create(Object.getPrototypeOf(board)), board).move(2)),
+        onSwipedDown: () => setBoard(Object.assign(Object.create(Object.getPrototypeOf(board)), board).move(3)),
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true
+      });
 
     useEvent('keydown', handleKeyDown)
 
@@ -44,7 +58,7 @@ export default function BoardView() {
     }
 
     return (
-        <div>
+        <div className="board-container" {...handlers}>
             <div className="details-box">
                 <div className="resetButton" onClick={resetGame}>new game</div>
                 <div className="score-box">
